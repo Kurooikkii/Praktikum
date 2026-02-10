@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio | M Rifqi Nurjaman</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+    <nav>
+        <div class="logo">K-I</div>
+        <ul>
+            <li><a href="index.html">HOME</a></li>
+            <li><a href="portfolio.html" class="active">PORTFOLIO</a></li>
+            <li><a href="index.html#contact">CONTACT</a></li>
+        </ul>
+    </nav>
+
+    <section class="common-section portfolio-page">
+        <h2>My Portfolio</h2>
+        <p>Beberapa karya yang pernah saya kerjakan.</p>
+        <div class="portfolio-tabs">
+            <button class="tab-btn active" data-target="clipper">Clipper</button>
+            <button class="tab-btn" data-target="thumbnail">Thumbnail</button>
+        </div>
+
+        <!-- Clipper -->
+        <div class="portfolio-content active" id="clipper">
+            <div class="portfolio-grid">
+                <div class="portfolio-item">
+                    <img src="images/clip1.jpg" alt="Clipper 1">
+                </div>
+                <div class="portfolio-item">
+                    <img src="images/clip2.jpg" alt="Clipper 2">
+                </div>
+            </div>
+        </div>
+
+        <!-- Thumbnail -->
+        <div class="portfolio-content" id="thumbnail">
+            <div class="portfolio-grid">
+                <div class="portfolio-item">
+                    <img src="images/thumb1.jpg" alt="Thumbnail 1">
+                </div>
+                <div class="portfolio-item">
+                    <img src="images/thumb2.jpg" alt="Thumbnail 2">
+                </div>
+                <div class="portfolio-item">
+                    <img src="images/thumb3.jpg" alt="Thumbnail 3">
+                </div>
+                <div class="portfolio-item">
+                    <img src="images/thumb4.jpg" alt="Thumbnail 4">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="portfolio.js"></script>
+
+</body>
+
+</html>
