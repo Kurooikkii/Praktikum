@@ -65,7 +65,11 @@ nav ul li a { text-decoration: none; color: #3c3e41; font-weight: 500; font-size
 /* Responsive */
 @media (max-width: 768px) {
     .hero { flex-direction: column-reverse; text-align: center; }
-    nav ul { display: none; } /* Sederhana untuk HP */
+    nav ul {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
 }
  .hero-footer {
         margin-top: 40px;
@@ -77,40 +81,106 @@ nav ul li a { text-decoration: none; color: #3c3e41; font-weight: 500; font-size
  .common-section {
     padding: 10px 8%;
  }
-/* Untuk layar Tablet dan HP (Maksimal lebar 768px) */
+/* Sembunyikan hamburger di desktop */
+.menu-toggle {
+    display: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #3c3e41;
+}
+
+/* Responsive Tablet & HP */
 @media (max-width: 768px) {
+    .menu-toggle {
+        display: block; /* Munculkan hamburger */
+        z-index: 1001;
+    }
+
     nav {
-        flex-direction: column;
-        padding: 20px;
+        justify-content: space-between;
+        padding: 20px 8%;
     }
 
+    /* Menu ditarik ke atas/samping saat sembunyi */
     nav ul {
-        margin-top: 15px;
-        padding: 0;
-        gap: 15px;
-        font-size: 14px;
+        position: fixed;
+        top: 0;
+        right: -100%; /* Sembunyi di kanan */
+        width: 70%;
+        height: 100vh;
+        background: var(--bg);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        box-shadow: -10px 0 20px var(--shadow-dark);
+        transition: 0.4s ease;
+        z-index: 1000;
     }
 
+    /* Menu muncul saat class 'active' ditambah lewat JS */
+    nav ul.active {
+        right: 0;
+    }
+
+    /* TATA LETAK FOTO PROFIL (Opsi A: Di atas teks) */
     .hero {
-        flex-direction: column-reverse; /* Gambar pindah ke atas teks di HP */
-        padding: 20px;
+        flex-direction: column; /* Gambar di atas, teks di bawah */
+        padding-top: 20px;
         text-align: center;
     }
 
-    .hero-text h1 {
-        font-size: 32px;
+    .hero-image {
+        order: -1; /* Memaksa foto naik ke paling atas */
+        margin-bottom: 30px;
     }
 
-    .hero-footer {
-        margin-top: 40px;
+    .img-card {
+        width: 180px; /* Ukuran lebih pas untuk HP */
+        height: 180px;
+        border-radius: 50%; /* Membuat foto jadi lingkaran */
+        margin: 0 auto;
+        overflow: hidden; /* Agar foto terpotong rapi */
         display: flex;
-        flex-direction: column;
+        justify-content: center;
         align-items: center;
     }
 
-    .image-card {
-        margin-bottom: 30px;
-        max-width: 300px; /* Ukuran gambar lebih kecil di HP */
+    .img-card img {
+        width: 100%;
+        height: auto;
+        border-radius: 0; /* Menghapus radius lama */
+    }
+
+    .hero-text h1 {
+        font-size: 32px; /* Perkecil font agar tidak berantakan */
+    }
+}
+    @media (max-width: 768px) {
+    /* ... kode yang lain ... */
+
+    .hero-footer {
+        width: 100%;
+        margin-top: 40px;
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Memastikan box sosial media ke tengah */
+        text-align: center;
+    }
+
+    .social-box {
+        width: 100%;
+    }
+
+    .icons {
+        display: flex;
+        justify-content: center; /* Memastikan ikon-ikon di dalamnya sejajar di tengah */
+        gap: 10px; /* Memberi jarak antar ikon agar tidak terlalu rapat */
+        margin-top: 15px;
+    }
+    
+    .icon {
+        margin-right: 0; /* Menghapus margin kanan desktop agar centering sempurna */
+        margin: 0 7px;   /* Memberi jarak seimbang kiri-kanan */
     }
 }
 
