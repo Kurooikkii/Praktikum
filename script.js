@@ -26,3 +26,27 @@ function erase() {
 }
 
 document.addEventListener("DOMContentLoaded", type);
+
+// Logika Hamburger Menu
+const menuToggle = document.getElementById('mobile-menu');
+const navList = document.getElementById('nav-list');
+
+menuToggle.addEventListener('click', () => {
+    navList.classList.toggle('active');
+    
+    // Opsional: Animasi ganti ikon ke 'X'
+    const icon = menuToggle.querySelector('i');
+    if (navList.classList.contains('active')) {
+        icon.classList.replace('fa-bars', 'fa-times');
+    } else {
+        icon.classList.replace('fa-times', 'fa-bars');
+    }
+});
+
+// Tutup menu saat link diklik (untuk navigasi yang smooth)
+document.querySelectorAll('nav ul li a').forEach(link => {
+    link.addEventListener('click', () => {
+        navList.classList.remove('active');
+        menuToggle.querySelector('i').classList.replace('fa-times', 'fa-bars');
+    });
+});
